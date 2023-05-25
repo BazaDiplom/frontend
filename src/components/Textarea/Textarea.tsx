@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import styles from './Input.module.scss';
+import styles from './Textarea.module.scss';
 type InputProps = {
-  type: string;
   value: string;
   name: string;
   setInput: Function;
@@ -10,7 +9,7 @@ type InputProps = {
   children?: string;
 };
 
-const Input = (props: InputProps) => {
+const Textarea = (props: InputProps) => {
   const [focus, setFocus] = useState({
     span: '',
     input: '',
@@ -20,9 +19,8 @@ const Input = (props: InputProps) => {
       <span className={focus.span + ' ' + (props.error ? styles.error : '')}>
         {props.children}
       </span>
-      <input
+      <textarea
         className={focus.input + ' ' + (props.error ? styles.error : '')}
-        type={props.type}
         value={props.value}
         name={props.name}
         onChange={(e) => props.setInput(e.target.value)}
@@ -57,4 +55,4 @@ const Input = (props: InputProps) => {
   );
 };
 
-export default Input;
+export default Textarea;
